@@ -163,7 +163,11 @@ searchFood : async ( req,res )=>{
          query = { title: { $regex: search, $options: 'i' } };
         
          const results = await Food.find(query)
-            res.status(200).json(results);
+
+         if (results.length >0)
+          {  res.status(200).json(results);}else{
+            res.status(201).json(results)
+          }
            
      }
      catch (error) {

@@ -62,7 +62,7 @@ CreateUser : async (req,res)=>{
 
 
 
-         res.status(201).json({ status: true, message: "user Created successfully" });
+         res.status(200).json({ status: true, message: "user Created successfully" });
 
        }
    catch (error) {
@@ -107,7 +107,9 @@ loginUser: async (req , res)=>{
 
      const token = await createToken(user._id)
 
-      res.status(200).json({token:token ,status:true})
+       user1= {...user._doc , token}
+
+      res.status(200).json({status:true , user1})
 
       }
 

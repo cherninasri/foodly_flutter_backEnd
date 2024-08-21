@@ -25,6 +25,19 @@ getUser : async (req,res)=>{
 
 
 },
+getallUser : async (req,res)=>{
+    try {
+
+    const user = await User.find({})
+
+       
+
+         res.status(200).json({ status: true, data: user });
+
+       }
+   catch (error) {
+       res.status(500).json({status:false, message: error.message});
+    }},
 
 verifyAccount: async (req , res)=>{
 
@@ -49,57 +62,6 @@ verifyAccount: async (req , res)=>{
 
 
 },
-getAllCategory:  async (req,res)=>{
-  
-try {
 
-
-  const  allCategorys = await Category.find({title : {$ne:"More"}}, {__v:0})
-
-
-
-    res.status(200).json({  Result:allCategorys.length,data:allCategorys});
-
-}
-    
-    catch (error) {
-
-
-       res.status(500).json({status:false, message: error.message});
-
-    }
-
-
-
-},
-getRandomCategory:  async (req,res)=>{
-
-
-    
-try {
-  
-  let randomCategory= await Category.aggregate([{$match: {value:{$ne:"more"}}},
-         {$sample: {size:4}}]);
-
-  
-
-
-
-
-
-    res.status(200).json(randomCategory);
-
-}
-    
-    catch (error) {
-
-
-       res.status(500).json({status:false, message: error.message});
-
-    }
-
-
-
-},
 
 }
