@@ -26,6 +26,8 @@ const Rating=require('./routes/rating')
 const User=require('./routes/authuser');
 const Cart=require('./routes/cart');
 const Order=require('./routes/order');
+const Vole=require('./routes/vole');
+
 
 
 
@@ -90,6 +92,8 @@ app.get('/api/s', (req,res)=>{
 
 
 // Mount Routes
+app.use('/api/Vole', Vole);
+
 app.use('/api/restaurants', Restaurant);
 app.use('/api/food', Food);
 app.use('/api/category', Category);

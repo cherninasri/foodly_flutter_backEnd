@@ -42,7 +42,7 @@ CreateUser : async (req,res)=>{
             return  res.status(400).json({ message: "Email already exists" });
 
           }
-        const otp = generateOtp();
+        
 
         const newpassword = await bcrypt.hash(req.body.password,12);
 
@@ -50,14 +50,14 @@ CreateUser : async (req,res)=>{
           {  username : req.body.username,
             email : req.body.email,
             password : newpassword,
-            otp : otp}
+            otp : "123456"}
 
 
         );
         await newUser.save();
 
 
-        await sendEmail(newUser.email,otp);
+       
 
 
 
