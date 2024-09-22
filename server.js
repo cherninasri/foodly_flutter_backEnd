@@ -19,14 +19,11 @@ const compression = require('compression')
 
 
 
-const Restaurant=require('./routes/restaurant')
-const Food=require('./routes/Food')
-const Category=require('./routes/category')
-const Rating=require('./routes/rating')
 const User=require('./routes/authuser');
-const Cart=require('./routes/cart');
-const Order=require('./routes/order');
+
 const Vole=require('./routes/vole');
+const VoleMain=require('./routes/voleMain');
+
 
 
 
@@ -93,14 +90,12 @@ app.get('/api/s', (req,res)=>{
 
 // Mount Routes
 app.use('/api/Vole', Vole);
+app.use('/api/VoleMain', VoleMain);
 
-app.use('/api/restaurants', Restaurant);
-app.use('/api/food', Food);
-app.use('/api/category', Category);
-app.use('/api/rating', Rating);
+
+
 app.use('/api/user', User);
-app.use('/api/cart', Cart);
-app.use('/api/order', Order);
+
 
 
 

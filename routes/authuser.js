@@ -7,6 +7,7 @@ loginUser
 
 const {
     getUser,
+    updateUser,
     getallUser
     } = require('../services/user');
 
@@ -14,6 +15,8 @@ const router = express.Router();
 
 
 router.get( "/allUser",getallUser) ;
+router.patch( "/update/:id",updateUser) ;
+
 router.post( "/create",CreateUser) ;
 
 router.post( "/login",loginUser) ;

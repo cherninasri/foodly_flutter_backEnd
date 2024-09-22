@@ -85,7 +85,7 @@ loginUser: async (req , res)=>{
 
     }
     const minPasswordLength = 8;
-    if(req.body.password<minPasswordLength)
+    if(req.body.password.length<minPasswordLength)
     {
         return  res.status(400).json({ message: "Password is short" });
 
