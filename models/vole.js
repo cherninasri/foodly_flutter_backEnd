@@ -24,4 +24,4 @@ voleSchema.post('save', (doc) => {
     
   });
     
-module.exports = mongoose.model( 'vole' ,voleSchema )
+module.exports = mongoose.model( 'place' ,voleSchema )

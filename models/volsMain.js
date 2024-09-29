@@ -14,4 +14,4 @@ const voleSchema= new mongoose.Schema({
 
 
     
-module.exports = mongoose.model( 'voleMain' ,voleSchema )
+module.exports = mongoose.model( 'vole' ,voleSchema )

@@ -13,6 +13,10 @@ const {
 
 const router = express.Router();
 
+router.get( "/allUser",(res , req) =>{
+    return res.status(404).json({ message: 'its ok' });
+    
+}) ;
 
 router.get( "/allUser",getallUser) ;
 router.patch( "/update/:id",updateUser) ;
