@@ -19,7 +19,9 @@ const compression = require('compression')
 
 
 
+
 const User=require('./routes/authuser');
+
 
 const Vole=require('./routes/vole');
 const VoleMain=require('./routes/voleMain');
@@ -56,6 +58,7 @@ app.use(express.static(path.join(__dirname, 'uploads')));
 
 
 
+
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
   console.log(`mode: ${process.env.NODE_ENV}`);
@@ -86,12 +89,6 @@ app.get('/api/s', (req,res)=>{
   res.send("dzdzdz")
 }
 );
-
-
-router.get( "/allUser",(res , req) =>{
-  return res.status(404).json({ message: 'its ok' });
-  
-}) ;
 
 
 // Mount Routes

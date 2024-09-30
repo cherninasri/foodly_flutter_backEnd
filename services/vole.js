@@ -1,6 +1,6 @@
 
 
-const Vole = require('../models/vole');
+const Place = require('../models/vole');
 const sharp = require('sharp');
 
 const {uploadMixOfImages} = require('../middlewares/uploadImageMiddleware');
@@ -49,7 +49,7 @@ addVole: async ( req,res )=>{
                 
 
 
-                const newVole =new Vole( req.body)  ;
+                const newVole =new Place( req.body)  ;
                 await newVole.save()                  
                     res.status(201).json({ status: false, message: "Vole has been successfully ad" })
                    
@@ -67,7 +67,7 @@ getVoleById : async ( req,res )=>{
    try {
 
 
-    const Vole = await Vole.findById(id) ;
+    const Vole = await Place.findById(id) ;
                    
         res.status(200).json(Vole)
        
@@ -98,7 +98,7 @@ searchVole : async ( req,res )=>{
 
          query = { name: { $regex: search, $options: 'i' } };
         
-         const results = await Vole.find(query)
+         const results = await Place.find(query)
 
          if (results.length >0)
           {  res.status(200).json(results);}else{
@@ -123,7 +123,7 @@ getAllVole: async ( req,res )=>{
         
 
        
-        const Voles = await Vole.find({});
+        const Voles = await Place.find({});
      
      
      
